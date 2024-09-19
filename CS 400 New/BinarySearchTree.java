@@ -47,8 +47,8 @@ public class BinarySearchTree<T extends Comparable<T>> implements SortedCollecti
         // Compare the new node's data with the current subtree's data
         int compareResult = newNode.getData().compareTo(subtree.getData());
 
-        if (compareResult < 0) {
-            // If new node is smaller, it goes to the left
+        if (compareResult <= 0) {
+            // If new node is smaller or equal, it goes to the left
             if (subtree.getLeft() == null) {
                 // If there's no left child, insert here
                 subtree.setLeft(newNode);
@@ -58,7 +58,7 @@ public class BinarySearchTree<T extends Comparable<T>> implements SortedCollecti
                 insertHelper(newNode, subtree.getLeft());
             }
         } else {
-            // If new node is greater or equal, it goes to the right
+            // If new node is greater, it goes to the right
             if (subtree.getRight() == null) {
                 // If there's no right child, insert here
                 subtree.setRight(newNode);
